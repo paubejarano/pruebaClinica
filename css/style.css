@@ -173,8 +173,3 @@ main{
 }
  /* CRUD PACIENTES */
  
- @media screen and (max-width: 768px) {
-  .table{
-    width: 9rem;
-  }
- }

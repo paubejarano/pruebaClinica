@@ -9,7 +9,7 @@
   <meta name="description" content="Clinic Code" />
   <meta name="keywords" content="clinica, crud, pacientes, rolling code, proyecto" />
   <title>Clinic Code</title>
-  <link rel="stylesheet" href="./css/stylepau.css">
+  <link rel="stylesheet" href="./css/style.css">
   <!-- MDB -->
   <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css" rel="stylesheet" /> -->
   <script src="https://kit.fontawesome.com/bdb612451a.js" crossorigin="anonymous"></script>
@@ -132,10 +132,11 @@
             </form>
         </section>
         <hr>
-        <h4>Cantidad de pacientes: <span id="cantPac"></span></h4>
-        <hr>
-        <table class="table">
-            <thead class="">
+        <section class="container table-responsive">
+          <h4>Cantidad de pacientes: <span id="cantPac"></span></h4>
+          <hr>
+          <table class="table table-sm">
+            <thead class="table-light">
               <tr class="">
                 <th scope="col">Nombre y Apellido</th>
                 <th scope="col" >DNI</th>
@@ -148,6 +149,7 @@
             </thead>
             <tbody id="tbody_paciente"></tbody>
           </table>
+        </section>
     </main>
     <footer class="bgderechosReservados py-5">
         <section class="container">
