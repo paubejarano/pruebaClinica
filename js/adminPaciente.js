@@ -14,8 +14,6 @@ const buttonCargar = document.getElementById("buttonCargar");
 
 const recargarDatos = () => {
   const pacientesLS = JSON.parse(localStorage.getItem("pacientes"));
-  // pacientes = pacientesLS.map((paciente)=>
-  // new Paciente(paciente.nombre, paciente.dni, paciente.fechaNac, paciente.telefono, paciente.obraSocial));
   
   document.getElementById("tbody_paciente").innerHTML = "";
   
@@ -27,12 +25,21 @@ const recargarDatos = () => {
 const listarPaciente = () => {
   document.getElementById("tbody_paciente").innerHTML = "";
   pacientes.forEach((paciente) => {
-    
+    const edad=()=>{
+      let today = new Date();
+        let birthDate = new Date(paciente.fechaNac);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        let m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+        }
+        return age;
+    }
     const tr = document.createElement("tr");
     
     const datos = `<td>${paciente.nombre}</td>
     <td>${paciente.dni}</td>
-    <td>${"edad"}</td>
+    <td>${edad()}</td>
     <td>${paciente.fechaNac}</td>
     <td>${paciente.telefono}</td>
     <td>${paciente.obraSocial}</td>`;
@@ -99,16 +106,11 @@ function deleteP(dni) {
 
       localStorage.setItem("pacientes", JSON.stringify(pacientes));
       
-      // Swal.fire({
-      //   title: "Eliminado",
-      //   text: "El paciente ha sido eliminado",
-      //   icon: "success",
-      // });
-      
     }
     window.location.reload();
   });
 }
+
 //obtener pacientes desde LS
 let pacientesLS = localStorage.getItem("pacientes");
 pacientesLS = JSON.parse(pacientesLS);
@@ -119,8 +121,7 @@ let pacientes = [];
 
 if (pacientesLS !== null) {
   pacientes = pacientesLS;
-  //.map((paciente)=>
-  //new Paciente(paciente.nombre, paciente.dni, paciente.fechaNac, paciente.telefono, paciente.obraSocial));
+  
   pacientes.forEach((paciente) => {
     listarPaciente(paciente);
   });
@@ -208,7 +209,7 @@ formularioPac.addEventListener("submit", (e) => {
     if (!isEditando) {
       
       let paciente = new Paciente(nombre, dni, fechaNac, telefono, obraSocial1);
-    //console.log(paciente.calcularEdad());
+    
       agregarPacienteALS(paciente);
       document.getElementById("formPaciente").reset();
       
