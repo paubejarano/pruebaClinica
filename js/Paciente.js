@@ -18,11 +18,4 @@ export class Paciente{
         return age;
     }
 
-    formatoFecha() {
-        let fecha = new Date(this.fechaNac);
-        formatoFecha = fecha.getDate() + "/" + fecha.getMonth() + "/" + fecha.getFullYear();
-
-        return formatoFecha;
-        }
-    
 }

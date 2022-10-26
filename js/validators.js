@@ -3,10 +3,11 @@ export const validateName = (valor, campo) => {
     if (valor.trim().length < 2) {
       campo.classList = "form-control is-invalid";
       return false;
+    }else{
+      campo.classList = "form-control";
+      return true;
     }
-  
-    campo.classList = "form-control is-valid";
-    return true;
+    
   };
 
 export const validateDni =(valor, campo) =>{
@@ -19,9 +20,11 @@ export const validateDni =(valor, campo) =>{
     if (!regex.test(valor)) {
         campo.classList = "form-control is-invalid";
         return false;
+    }else{
+      campo.classList = "form-control";
+      return true;
     }
-    campo.classList = "form-control is-valid";
-    return true;
+    
 };
 
 export const validateNumber = (valor, campo) => {
@@ -35,7 +38,9 @@ export const validateNumber = (valor, campo) => {
     if (!regex.test(valor)) {
       campo.classList = "form-control is-invalid";
       return false;
+    }else{
+      campo.classList = "form-control";
+      return true;
     }
-    campo.classList = "form-control is-valid";
-    return true;
+    
 };
